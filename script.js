@@ -2,20 +2,24 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-var password_choices ={
-lowercase: ["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"],
 
-uppercase: ["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"],
+var lowercase= ("abcdefghijklmnopqrstuvwxyz");
 
-numbers: [0,1,2,3,4,5,6,7,8,9],
+var uppercase= ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
-special: ["!,@,#,$,%,^,&,,,*,_,-,+,="],
-};
+var numbers= (0123456789);
+
+var special= ("!@#$%,^&*_-+=");
+
+// This Var sets the initial password to blank so if no choices are made it will not display undefined
+var passwordType =("");
+
 
 function generatePassword(){
 
 var passwordLength = prompt ("Please specify length of password.");
 
+//This "if" statement will run if user chooses password length outside of desired parameters
 if (passwordLength < 8 || passwordLength > 128) {
 alert("Password must be between 8 and 128 characters.");
 return"";
@@ -29,13 +33,34 @@ var includeNumbers = confirm("Use numbers?");
 
 var includeSpecial = confirm("Use special characters?");
 
-
+// This "if" statement checks all confirms and if all return as false, alert pops to inform user they must make a selection of at least one type
 if (includeLower==false && includeUpper==false && includeNumbers==false &&includeSpecial==false) {
 alert("Password must contain at least one alphanumeric or symbol choice.");
 return"";
 }
 
-//return password;
+//These "if" statements will add the values of the specified var to var passwordType
+if (includeLower==true){
+  passwordType+= lowercase;
+}
+
+if(includeUpper==true){
+  passwordType += uppercase;
+}
+
+if(includeNumbers==true){
+  passwordType += numbers;
+}
+
+if(includeSpecial==true){
+  passwordType += special;
+}
+
+//The "for" loop here will add to var password randomly chosen elements based on the password length chosen earlier by user and the values they picked
+for (var i=0; i < passwordLength; i++){
+password += passwordType.charAt(Math.floor(Math.random() * passwordType.length));
+}
+return password;
 }
 
 function writePassword() {
