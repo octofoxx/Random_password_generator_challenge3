@@ -11,11 +11,14 @@ var numbers= (0123456789);
 
 var special= ("!@#$%,^&*_-+=");
 
-// This Var sets the initial password to blank so if no choices are made it will not display undefined
+// Sets the initial values for the password and passwordType as blank, otherwise when password is generated causes extra text to appear
+var password =("");
+
 var passwordType =("");
 
 
 function generatePassword(){
+
 
 var passwordLength = prompt ("Please specify length of password.");
 
@@ -60,6 +63,8 @@ if(includeSpecial==true){
 for (var i=0; i < passwordLength; i++){
 password += passwordType.charAt(Math.floor(Math.random() * passwordType.length));
 }
+
+//gives us our randomly generated password!
 return password;
 }
 
