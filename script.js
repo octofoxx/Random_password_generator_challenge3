@@ -7,7 +7,7 @@ var lowercase= ("abcdefghijklmnopqrstuvwxyz");
 
 var uppercase= ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
-var numbers= (0123456789);
+var numbers= ("0123456789");
 
 var special= ("!@#$%,^&*_-+=");
 
@@ -18,6 +18,10 @@ var passwordType =("");
 
 
 function generatePassword(){
+
+var password =("");
+
+var passwordType =("");
 
 
 var passwordLength = prompt ("Please specify length of password.");

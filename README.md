@@ -25,7 +25,8 @@ Once all criteria has been meet, a randomly created password will be displayed f
 ![screenshot of the random password generator with a displayed random password](./assets/random_password_screenshot.png)
 
 https://github.com/octofoxx/Random_password_generator_challenge3
-    ```
+
+https://octofoxx.github.io/Random_password_generator_challenge3/
 
 ## Credits
 
